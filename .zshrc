@@ -95,6 +95,8 @@ alias series='~/series/.series'
 alias unpack='~/series/unpack'
 alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias atom='~/.atom/atom >/dev/null 2>&1 &'
+alias eclipse='/home/miguel/eclipse/cpp-mars/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
+
 alias ll='ls -ll'
 alias la='ls -la'
 alias .='cd ..'
