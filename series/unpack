@@ -1,3 +1,5 @@
+#!/bin/sh
+
 DEBUG=f
 mid_folder() {
   for subdir in */

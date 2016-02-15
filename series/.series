@@ -1,3 +1,6 @@
+#!/bin/sh
+
+
 i=0
 pathArray=()
 one=1
