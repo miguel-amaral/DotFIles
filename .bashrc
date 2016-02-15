@@ -46,9 +46,18 @@ alias unpack='~/series/unpack'
 alias eclipse='/home/miguel/eclipse/cpp-mars/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
 
 
+export M2_HOME=/opt/apache-maven-3.3.9
+export PATH=$PATH:$M2_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin
 export CVSROOT=:ext:ist178865@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/leic-po/po15/cvs/094
 PS1='\[\e[1m\][\#]\[\e[1;34m\][ \t ]\[\e[32m\][ Amaral@ \h ]\[\e[90m\][ \w ] \[\e[34m\]\$ \[\e[0m\]'
 #alias atom='~/.atom/atom >/dev/null 2>&1 0>&1 &'
+
+alias strem='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+alias Strem='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+alias stremio='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+alias Stremio='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+
 alias ll='ls -ll'
 alias la='ls -la'
 alias .='cd ..'
