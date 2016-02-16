@@ -1,4 +1,9 @@
+
+
 DotFilesPath=$(pwd)
+
 cd ~
+rm .bashrc
+rm .zshrc
 ln -s $DotFilesPath/.bashrc .bashrc
 ln -s $DotFilesPath/.zshrc .zshrc 

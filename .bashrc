@@ -1,9 +1,10 @@
 gb() {
-   if test -z "$1" -o -eq "$1" 0  # Is parameter #1 zero length?
+   if test -z "$1" -o -eq "$1" 0
    then
      cd ../
    else
-     echo "-Parameter #1 is \"$1\".-"
+     cd ../
+     gb $(expr $1 - 1)
    fi
 }
 echo -e "\e[0;1;42mWelcome Miguel\n\e[0;1m"
@@ -48,14 +49,14 @@ alias list_size='du --exclude=yesterday --max-depth=2 -h | sort -h'
 # Home
 alias series='~/series/.series'
 alias unpack='~/series/unpack'
-#alias eclipse='/home/miguel/eclipse_java/eclipse >/dev/null 2>&1 0>&1 &'
+alias eclipse='/home/miguel/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
 
 
-#export M2_HOME=/opt/apache-maven-3.3.9
-#export PATH=$PATH:$M2_HOME/bin
+export M2_HOME=/opt/apache-maven-3.3.9
+export PATH=$PATH:$M2_HOME/bin
 
 #export JAVA_HOME=/usr/java/jdk1.8.0_73/
-#export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin
 #export CVSROOT=:ext:ist178865@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/leic-po/po15/cvs/094
 PS1='\[\e[1m\][\#]\[\e[1;34m\][ \t ]\[\e[32m\][ Amaral@ \h ]\[\e[90m\][ \w ] \[\e[34m\]\$ \[\e[0m\]'
 #alias atom='~/.atom/atom >/dev/null 2>&1 0>&1 &'
