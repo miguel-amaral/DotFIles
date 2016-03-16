@@ -1,11 +1,11 @@
 #Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh/
+export ZSH=~/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
 
+#ZSH_THEME="robbyrussell"
 ZSH_THEME="78865phils"
 
 
@@ -14,7 +14,7 @@ ZSH_THEME="78865phils"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+ HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -29,10 +29,10 @@ ZSH_THEME="78865phils"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -90,29 +90,7 @@ source $ZSH/oh-my-zsh.sh
 #alias go_psem='/afs/.ist.utl.pt/groups/psem/'
 #alias list_size='du --exclude=yesterday --max-depth=2 -h | sort -h'
 
-# Home
-alias series='~/series/.series'
-alias unpack='~/series/unpack'
 alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias atom='~/.atom/atom >/dev/null 2>&1 &'
-alias eclipse='/home/miguel/eclipse/cpp-mars/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
 
-alias ll='ls -ll'
-alias la='ls -la'
-alias .='cd ..'
-alias ..='cd ../..'
-alias ...='cd ../../..'
-alias ....='cd ../../../..'
-alias .....='cd ../../../../..'
-test -s ~/.alias && . ~/.alias || true
-
-ssh-add -l >/dev/null 2>1
-rc=$?
-if [ $rc -eq 2 ];
-then
-  eval `ssh-agent -s`
-fi
-ssh-add -l >/dev/null 2>1
-rc=$?
-if [[ $rc != 0 ]] then ssh-add; fi
+test -s ~/.shellrc && source ~/.shellrc
 

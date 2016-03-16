@@ -45,31 +45,17 @@ invencoes=false
 alias limpar_cache='rm -rf ~/.cache/mozilla/'
 alias go_psem='/afs/.ist.utl.pt/groups/psem/'
 alias list_size='du --exclude=yesterday --max-depth=2 -h | sort -h'
+#alias atom='~/.atom/atom >/dev/null 2>&1 0>&1 &'
 
 # Home
 alias series='~/series/.series'
 alias unpack='~/series/unpack'
-alias eclipse='/home/miguel/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
-
-
-export M2_HOME=/opt/apache-maven-3.3.9
-export PATH=$PATH:$M2_HOME/bin
-
-#export JAVA_HOME=/usr/java/jdk1.8.0_73/
-export PATH=$PATH:$JAVA_HOME/bin
-#export CVSROOT=:ext:ist178865@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/leic-po/po15/cvs/094
+#alias eclipse='/home/miguel/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
 PS1='\[\e[1m\][\#]\[\e[1;34m\][ \t ]\[\e[32m\][ Amaral@ \h ]\[\e[90m\][ \w ] \[\e[34m\]\$ \[\e[0m\]'
-#alias atom='~/.atom/atom >/dev/null 2>&1 0>&1 &'
+
 
 alias strem='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
 alias Stremio='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
 
-alias ll='ls -ll'
-alias ll='ls -ll'
-alias la='ls -la'
-alias .='cd ..'
-alias ..='cd ../..'
-alias ...='cd ../../..'
-alias ....='cd ../../../..'
-alias .....='cd ../../../../..'
-test -s ~/.alias && source ~/.alias
+
+test -s ~/.shellrc && source ~/.shellrc

@@ -5,5 +5,15 @@ DotFilesPath=$(pwd)
 cd ~
 rm .bashrc
 rm .zshrc
-ln -s $DotFilesPath/.bashrc .bashrc
-ln -s $DotFilesPath/.zshrc .zshrc 
+
+rm .bash_completion.bash
+rm .exports
+rm .alias
+rm .shellrc
+ln -s $DotFilesPath/bashrc .bashrc
+ln -s $DotFilesPath/zshrc .zshrc 
+ln -s $DotFilesPath/bash_completion.bash .bash_completion.bash
+ln -s $DotFilesPath/exports .exports
+ln -s $DotFilesPath/alias .alias
+ln -s $DotFilesPath/shellrc .shellrc
+

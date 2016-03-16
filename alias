@@ -1,0 +1,8 @@
+#!/bin/bash
+alias ll='ls -llh'
+alias la='ls -lah'
+alias .='cd ..'
+alias ..='cd ../..'
+alias ...='cd ../../..'
+alias ....='cd ../../../..'
+alias .....='cd ../../../../..'
