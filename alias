@@ -6,3 +6,17 @@ alias ..='cd ../..'
 alias ...='cd ../../..'
 alias ....='cd ../../../..'
 alias .....='cd ../../../../..'
+
+
+
+
+
+
+
+
+alias atom='~/.atom/atom'
+alias changeTest='vim /afs/.ist.utl.pt/users/6/5/ist178865/compiladores/EntregaFinal/tests-zu-daily-201604071153/A-00.zu'
+alias changePath='vim /afs/.ist.utl.pt/users/6/5/ist178865/compiladores/EntregaFinal/runtests.sh'
+alias setupPratico='echo -e "\e[33;1mPlease change Zu Binary Path" && sleep 1 && changePath && sleep 0.1 & sleep 0.1 &&  echo -e "   change test now\e[0m" && sleep 1 && changeTest'
+alias run='(cd /afs/.ist.utl.pt/users/6/5/ist178865/compiladores/EntregaFinal/ && ./runtests.sh 0 0)'
+
