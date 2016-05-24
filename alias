@@ -1,8 +1,21 @@
 #!/bin/bash
+alias series='cd ~/Downloads/kTorrent/Series'
+alias movies='cd ~/Downloads/kTorrent/Movies'
+
+alias strem='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+alias Stremio='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+
 alias ll='ls -llh'
 alias la='ls -lah'
-alias .='cd ..'
-alias ..='cd ../..'
-alias ...='cd ../../..'
-alias ....='cd ../../../..'
-alias .....='cd ../../../../..'
+
+alias ......='cd ../../../../..'
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias LL='ll'
+
+### Script ###
+alias mvToAcerTrans='bash ~/moveToAcerTrans.sh'
+alias wake_acer='bash ~/wake_acer.sh'
+alias ida='bash ~/IDA.sh'

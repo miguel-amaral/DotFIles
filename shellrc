@@ -1,5 +1,4 @@
 #!/bin/bash
 test -s ~/.alias && source ~/.alias
 test -s ~/.exports && source ~/.exports
-test -s ~/.bash_maven_completion && source ~/.bash_maven_completion
-cd ~
+#test -s ~/.bash_maven_completion && source ~/.bash_maven_completion
