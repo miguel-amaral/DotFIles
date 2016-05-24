@@ -1,14 +1,4 @@
-gb() {
-   if test -z "$1" -o -eq "$1" 0
-   then
-     cd ../
-   else
-     cd ../
-     gb $(expr $1 - 1)
-   fi
-}
 echo -e "\e[0;1;42mWelcome Miguel\n\e[0;1m"
-
 
 invencoes=false
 # Esta parte provavelmente nao te interessa
@@ -47,15 +37,6 @@ alias go_psem='/afs/.ist.utl.pt/groups/psem/'
 alias list_size='du --exclude=yesterday --max-depth=2 -h | sort -h'
 #alias atom='~/.atom/atom >/dev/null 2>&1 0>&1 &'
 
-# Home
-alias series='~/series/.series'
-alias unpack='~/series/unpack'
-#alias eclipse='/home/miguel/eclipse/eclipse >/dev/null 2>&1 0>&1 &'
 PS1='\[\e[1m\][\#]\[\e[1;34m\][ \t ]\[\e[32m\][ Amaral@ \h ]\[\e[90m\][ \w ] \[\e[34m\]\$ \[\e[0m\]'
-
-
-alias strem='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
-alias Stremio='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
-
 
 test -s ~/.shellrc && source ~/.shellrc

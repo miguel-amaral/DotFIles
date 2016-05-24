@@ -1,18 +1,12 @@
 #!/bin/bash
+alias series='cd ~/Downloads/kTorrent/Series'
+alias movies='cd ~/Downloads/kTorrent/Movies'
+
+alias strem='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+alias Stremio='/usr/share/Strem/Stremio.sh >/dev/null 2>&1 0>&1 &'
+
 alias ll='ls -llh'
 alias la='ls -lah'
-alias .='cd ..'
-alias ..='cd ../..'
-alias ...='cd ../../..'
-alias ....='cd ../../../..'
-alias .....='cd ../../../../..'
-
-
-
-
-
-
-
 
 alias atom='~/.atom/atom'
 alias changeTest='vim /afs/.ist.utl.pt/users/6/5/ist178865/compiladores/EntregaFinal/tests-zu-daily-201604071153/A-00.zu'
@@ -20,3 +14,15 @@ alias changePath='vim /afs/.ist.utl.pt/users/6/5/ist178865/compiladores/EntregaF
 alias setupPratico='echo -e "\e[33;1mPlease change Zu Binary Path" && sleep 1 && changePath && sleep 0.1 & sleep 0.1 &&  echo -e "   change test now\e[0m" && sleep 1 && changeTest'
 alias run='(cd /afs/.ist.utl.pt/users/6/5/ist178865/compiladores/EntregaFinal/ && ./runtests.sh 0 0)'
 
+
+alias ......='cd ../../../../..'
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias LL='ll'
+
+### Script ###
+alias mvToAcerTrans='bash ~/moveToAcerTrans.sh'
+alias wake_acer='bash ~/wake_acer.sh'
+alias ida='bash ~/IDA.sh'
