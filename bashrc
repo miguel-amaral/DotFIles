@@ -1,4 +1,8 @@
-echo -e "\e[0;1;42mWelcome Miguel\n\e[0;1m"
+if [[ $- =~ "i" ]]
+then
+	echo -e "\e[0;1;42mWelcome Miguel\n \e[0m"
+fi
+
 
 invencoes=false
 # Esta parte provavelmente nao te interessa
