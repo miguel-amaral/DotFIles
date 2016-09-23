@@ -1,4 +1,3 @@
-echo -e "\e[0;1;42mWelcome Miguel\n\e[0;1m"
 
 invencoes=false
 # Esta parte provavelmente nao te interessa
@@ -40,3 +39,9 @@ alias list_size='du --exclude=yesterday --max-depth=2 -h | sort -h'
 PS1='\[\e[1m\][\#]\[\e[1;34m\][ \t ]\[\e[32m\][ Amaral@ \h ]\[\e[90m\][ \w ] \[\e[34m\]\$ \[\e[0m\]'
 
 test -s ~/.shellrc && source ~/.shellrc
+
+if [[ $(hostname) == lab* ]]
+then
+	zsh
+fi
+
