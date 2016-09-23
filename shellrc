@@ -1,20 +1,22 @@
 #!/bin/bash
-test -s ~/.alias && source ~/.alias
-test -s ~/.exports && source ~/.exports
-#test -s ~/.bash_maven_completion && source ~/.bash_maven_completion
+if [[ $- =~ "i" ]]
+then
 
-export USER_CACHE=$(mktemp -d)
+	test -s ~/.alias && source ~/.alias
+	test -s ~/.exports && source ~/.exports
+	
+	#export USER_CACHE=$(mktemp -d)
+	
+	#mkdir -p $USER_CACHE/.cache
 
-mkdir -p $USER_CACHE/.cache
+	#export XDG_CACHE_HOME=$USER_CACHE/.cache
 
-export XDG_CACHE_HOME=$USER_CACHE/.cache
+	#if  [ -L $HOME/.cache ] && [ ! -d $(readlink $HOME/.cache) ] || [ ! -L $HOME/.cache ]; then
+	#        rm -rf $HOME/.cache && ln -s $XDG_CACHE_HOME $HOME/.cache
+	#fi
 
-if  [ -L $HOME/.cache ] && [ ! -d $(readlink $HOME/.cache) ] || [ ! -L $HOME/.cache ]; then
-        rm -rf $HOME/.cache && ln -s $XDG_CACHE_HOME $HOME/.cache
+	echo -e "\e[0;1;42mWelcome Miguel\e[0;1m\n"
+	fs lq
+
 fi
-
-echo -e "\e[0;1;42mWelcome Miguel\n\e[0;1m"
-fs lq
-
-
 
