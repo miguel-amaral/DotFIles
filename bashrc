@@ -1,6 +1,6 @@
 if [[ $- =~ "i" ]]
 then
-	echo -e "\e[0;1;42mWelcome Miguel\n \e[0m"
+	echo -e "\e[0;1;42mWelcome Miguel\e[0m"
 
 
 	# School only
