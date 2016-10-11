@@ -4,9 +4,9 @@ then
 
 	test -s ~/.alias && source ~/.alias
 	test -s ~/.exports && source ~/.exports
-	
+
 	#export USER_CACHE=$(mktemp -d)
-	
+
 	#mkdir -p $USER_CACHE/.cache
 
 	#export XDG_CACHE_HOME=$USER_CACHE/.cache
@@ -16,7 +16,9 @@ then
 	#fi
 
 	echo -e "\e[0;1;42mWelcome Miguel\e[0;1m\n"
-	fs lq
+	if [[ $(hostname) == lab* ]]
+	then
+		fs lq
+	fi
 
 fi
-
