@@ -14,7 +14,7 @@ then
 	#if  [ -L $HOME/.cache ] && [ ! -d $(readlink $HOME/.cache) ] || [ ! -L $HOME/.cache ]; then
 	#        rm -rf $HOME/.cache && ln -s $XDG_CACHE_HOME $HOME/.cache
 	#fi
-
+	eval `ssh-agent` >/dev/null
 	echo -e "\e[0;1;42mWelcome Miguel\e[0;1m\n"
 	if [[ $(hostname) == lab* ]]
 	then
