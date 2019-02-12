@@ -1,0 +1,4 @@
+bash install_docker.sh
+bash install_docker_compose.sh
+bash install_docker_machine.sh
+bash zsh_docker_machine_completion.sh
