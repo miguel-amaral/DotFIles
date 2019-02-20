@@ -54,7 +54,12 @@ then
 	# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 	# Example format: plugins=(rails git textmate ruby lighthouse)
 	# Add wisely, as too many plugins slow down shell startup.
-	plugins=(git)
+	plugins=(
+		git
+		docker
+		docker-machine
+	)
+	autoload -U compinit && compinit
 
 	# User configuration
 
@@ -93,7 +98,11 @@ then
 	#alias go_psem='/afs/.ist.utl.pt/groups/psem/'
 	#alias list_size='du --exclude=yesterday --max-depth=2 -h | sort -h'
 
+
 	alias ohmyzsh="mate ~/.oh-my-zsh"
 
 	test -s ~/.shellrc && source ~/.shellrc
 fi
+
+export NVM_DIR="/home/miguel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

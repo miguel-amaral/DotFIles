@@ -16,4 +16,4 @@ ln -s $DotFilesPath/bash_completion.bash .bash_completion.bash
 ln -s $DotFilesPath/exports .exports
 ln -s $DotFilesPath/alias .alias
 ln -s $DotFilesPath/shellrc .shellrc
-
+ln -s $DotFilesPath/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
