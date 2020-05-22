@@ -1,0 +1,16 @@
+brew install ktlint
+
+asdf plugin-add kubectl https://github.com/Banno/asdf-kubectl
+asdf install kubectl 1.13.12 1.12.10
+
+
+
+# Install minikube
+# follow https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
+  && chmod +x minikube
+
+sudo mv minikube /usr/local/bin
+
+minikube start --kubernetes-version v1.12.10

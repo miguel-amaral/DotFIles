@@ -1,0 +1,6 @@
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions /plugins/zsh-autosuggestions
+https://towardsdatascience.com/customising-the-mac-terminal-to-increase-productivity-and-improve-the-interface-894f6d86d573
+brew install fortune ; fortune
+
+# Check STOW (Symlink Farm Generator)

@@ -1,0 +1,93 @@
+#PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]\u\[\033[32m\]$ \[\n\033[0m\]"
+test -s ~/.alias && source ~/.alias
+test -s ~/.exports && source ~/.exports
+
+function nonzero_return() {
+	RETVAL=$?
+	[ $RETVAL -ne 0 ] && echo -e "\e[31m[$RETVAL] "
+  [ $RETVAL -eq 0 ] && echo -e "\e[32m[\e[0m✔\e[32m] "
+}
+
+function new_line_after_git() {
+    local retval=" ola "
+    [ -n __git_ps1 ] && local retval="\n"
+    echo -e "$retval"
+}
+
+## Kubect prompt https://github.com/jonmosco/kube-ps1/
+source kube-ps1.sh
+## git prompt https://github.com/git/git/tree/master/contrib/completion
+source git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUPSTREAM="verbose"
+GIT_PS1_SHOWCOLORHINTS=1
+
+KUBE_PS1_SYMBOL_ENABLE=false # display kubernetes symbol
+KUBE_PS1_SYMBOL_COLOR=blue	 # Set default color of the Kubernetes symbol
+KUBE_PS1_CTX_COLOR=red			 # Set default color of the context
+KUBE_PS1_NS_COLOR=cyan			 # Set default color of the namespace
+
+
+function get_colored_cluster() {
+	if [[ $1 == eks_stg* ]] ; then
+		echo -e "\e[32m$1"
+	elif [[ $1 == eks_qa* ]] ; then
+		echo -e "\e[1;33m$1"
+	elif [[ $1 == eks_cicd* ]] ; then
+		echo -e "\e[1;31m$1"
+	elif [[ $1 == eks_prd* ]] ; then
+		echo -e "\e[1;31m$1"
+	fi
+}
+
+function filter_default_namespace() {
+		if [[ $1 == default ]] ; then
+			echo ""
+		else
+			echo "$1"
+		fi
+}
+
+prompt_k8s(){
+  k8s_current_context=$(kubectl config current-context 2> /dev/null)
+  if [[ $? -eq 0 ]] ; then
+			if [[ ${k8s_current_context} == eks_stg* ]] ; then
+				# staging green
+				echo -en "\e[32m"
+			elif [[ ${k8s_current_context} == eks_qa* ]] ; then
+				# qa yellow
+				echo -en "\e[1;33m"
+			elif [[ ${k8s_current_context} == eks_cicd* ]] ; then
+				# cicd red
+				echo -en "\e[1;31m"
+			elif [[ ${k8s_current_context} == eks_prd* ]] ; then
+				# prd red
+				echo -en "\e[1;31m"
+			elif [[ ${k8s_current_context} == minikube ]] ; then
+				# qa yellow
+				echo -en "\e[1;96m"
+			else
+				#no color
+				echo -en ""
+			fi
+		echo -e "(${k8s_current_context}) "
+ 	fi
+}
+#
+export PS1='
+$(nonzero_return)\[\e[1;95m\]\w\[\e[1;36m\] $(__git_ps1)\[\e[0m\]
+\[\e[1m\]$(prompt_k8s)\[\e[97m\]( \t )\e[m
+ $ '
+
+# PS1+='\e[0;31m$(prompt_k8s)\e[m($(date +%H:%M))\n$ '
+# KUBE_PS1_CTX_COLOR=''
+# Names are usable for the following colors:
+# black, red, green, yellow, blue, magenta, cyan
+
+#green -> \[\e[32m\]
+#red   -> \[\e[31m\]
+#grey  -> \[\e[90m\]
+#host -> \h
+[ -f /Users/miguel.amaral/.asdf/installs/td-cli/1.5.0/completions/td-bash-completion ] && source /Users/miguel.amaral/.asdf/installs/td-cli/1.5.0/completions/td-bash-completion

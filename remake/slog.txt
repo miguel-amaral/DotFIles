@@ -1,0 +1,391 @@
+
+
+wifi:
+talkdesk-guest  / See keypass
+
+keybase
+    keybase ctl stop
+    https://keybase.io/docs/the_app/install_macos
+
+    logon with username ---> add device with other device
+
+* tunnelblick
+    https://tunnelblick.net/downloads.html
+
+    --> Add vpns via config file
+
+
+* whatsapp
+* opera
+* google chrome
+	  cp -R  Library/Application\ Support/Slack/* ~/Library/Application\ Support/Slack/
+  	  cp -R Library/Application\ Support/Google/* ~/Library/Application\ Support/Google/
+  	  cp -R  Library/Application\ Support/Tunnelblick/* ~/Library/Application\ Support/Tunnelblick/
+  	  sudo cp -R  Library/Application\ Support/Tunnelblick/* ~/Library/Application\ Support/Tunnelblick/
+* spotify
+* keypassx
+* https://www.google.com/drive/download/backup-and-sync/
+* docker - https://docs.docker.com/v17.12/docker-for-mac/install/ 
+* lastpass - https://lastpass.com/misc_download2.php
+
+################################################################################
+mkdir ~/talkdesk
+export TALKDESK=$HOME/talkdesk
+export PATH=$PATH:$TALKDESK/bin
+cd /; sudo ln -s ~/talkdesk 
+
+################################################################################
+
+Follow:
+    https://talkdesk.atlassian.net/wiki/spaces/SRE/pages/112988691/SRE+Onboarding
+
+
+################################################################################
+
+GPGTools - https://gpgtools.org/
+
+################################################################################
+
+* homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install heroku/brew/heroku
+
+# ssh host completion
+brew install bash
+brew install truncate
+
+#brew install awscli
+pip install awscli
+brew install aws-shell
+brew install jq 
+
+brew install watch
+
+brew install telnet
+
+brew install ktlint
+ktlint --install-git-pre-commit-hook
+cd $PROJECT
+ktlint --apply-to-idea-project
+
+#  - used to debug http request better --- use cmd "http" instead of "curl"
+pip install httpie
+
+#----------------------------- gopass  -----------------------------
+https://github.com/Talkdesk/gopass
+brew install gnupg2 gopass
+
+
+#----------------------------- asdf  -----------------------------
+brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc  unzip curl
+brew install asdf
+
+source /usr/local/opt/asdf/asdf.sh
+asdf plugin-add  kubectl
+asdf install kubectl 1.10.3
+asdf install kubectl 1.11.8
+asdf install kubectl 1.12.7
+
+# use version 1.8.5
+asdf global kubectl 1.8.5
+asdf global kubectl 1.10.3
+asdf global kubectl 1.11.8
+asdf global kubectl 1.12.7
+
+#----------------------------- kube-ps1 -----------------------------
+
+# https://github.com/jonmosco/kube-ps1/
+# brew install kube-ps1
+# 
+# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+# PS1="[$(kube_ps1)]$ "
+
+Add to ~/.bash_profile
+
+prompt_k8s(){
+  k8s_current_context=$(kubectl config current-context 2> /dev/null)
+  if [[ $? -eq 0 ]] ; then echo -e "(${k8s_current_context}) "; fi
+}
+
+PS1+='$(prompt_k8s)'
+
+#----------------------------- bash git prompt -----------------------------
+brew install bash-git-prompt
+
+.bash_profile
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
+#----------------------------- perlbrew -----------------------------
+\curl -L https://install.perlbrew.pl | bash
+
+echo "source ~/perl5/perlbrew/etc/bashrc" >> ~/.bash_profile
+. ~/.bash_profile
+perlbrew install-cpanm
+
+
+#-----------------------------  ansible -----------------------------
+brew install ansible
+
+#-----------------------------  terraform & eks  -----------------------------
+brew install terraform
+
+https://github.com/Banno/asdf-hashicorp
+#asdf plugin-add consul|nomad|packer|serf|terraform|vault https://github.com/Banno/asdf-hashicorp.git
+
+asdf plugin-add terraform https://github.com/Banno/asdf-hashicorp.git
+
+asdf install terraform 0.11.14
+asdf global terraform 0.11.14
+
+
+# aws / heptio authenticator
+
+https://github.com/heptio/aws-iam-authenticator/releases
+/Users/jose.pereira/workspace/go/bin/heptio-authenticator-aws
+
+#----------------------------- bash git prompt -----------------------------
+brew install bash-git-prompt
+
+.bash_profile
+if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
+    source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
+#----------------------------- packer  -----------------------------
+
+brew install packer
+
+
+
+#----------------------------- kubetail  -----------------------------
+#kubetail 
+brew tap johanhaleby/kubetail && brew install kubetail
+
+#----------------------------- Visual Studio Code  -----------------------------
+
+https://code.visualstudio.com/download
+
+#----------------------------- bash completion -----------------------------
+
+brew install bash-completion
+
+brew install git && brew install bash-completion
+
+cat >> ~/.bash_profile <<EOL
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+EOL
+
+cd /usr/local/etc/bash_completion.d
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+
+#----------------------------- END bash completion -----------------------------
+
+#----------------------------- sslyze -----------------------------
+
+brew imnstall sslyze
+sslyze --regular kci.talkdeskapp.com
+
+#----------------------------- ack - grep alternative -----------------------------
+brew install ack
+
+#----------------------------- td-cli -----------------------------
+
+ASDF:
+	# View available versions
+	$ asdf list-all td-cli
+	1.3.0
+	1.2.0
+	1.1.0
+	1.0.1
+	1.0.0
+	
+	# Install version 1.3.0
+	$ asdf  install td-cli 1.3.0
+	
+	# Use 1.3.0 version globally
+	$ asdf global td-cli 1.3.0
+	
+	# Check it
+	$ td --version
+	Talkdesk Command-line v1.3.0
+
+BREW:
+	https://github.com/Talkdesk/homebrew-talkdesk
+	brew tap Talkdesk/talkdesk git@github.com:Talkdesk/homebrew-talkdesk.git
+	
+	export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.github/td-cli-token)
+	brew install td-cli
+
+#----------------------------- ansible vault diff -----------------------------
+
+Add to ~/.gitconfig
+
+[diff "ansible-vault"]
+    textconv = "ansible-vault view --vault-password-file=~/.ansible_vault/infrastructure"
+
+#----------------------------- go - golang -----------------------------
+
+# Install golang via homebrew
+
+brew install go
+
+mkdir -p $HOME/workspace/go
+
+cat <<EOT >> ~/.bash_profile
+export GOPATH=$HOME/workspace/go
+export PATH=$PATH:$GOPATH/bin
+EOT
+
+
+vim
+:GoInstallBinaries
+
+
+
+# usefull tools
+go get golang.org/x/tools/cmd/godoc
+# analyse our code for problems - https://golang.org/cmd/vet/
+go get golang.org/x/tools/cmd/vet
+go get -u golang.org/x/lint/golint
+
+
+# setup normalized structure
+
+mkdir $GOPATH/bin
+mkdir $GOPATH/pkg
+mkdir $GOPATH/src
+
+#  
+#  # # vim highlignting
+#  #
+#  # get latest version of vim
+#  brew install vim
+#  hash -r
+#  vim --version   # should be latest version
+#  
+#  # install pathogen
+#  mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+#  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+#  
+#  git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+#  
+#  
+#### # cp $GOROOT/misc/vim/go.vim .vim/syntax/
+#### # cat <<EOT >> ~/.vimrc
+#### # au BufRead,BufNewFile *.go set filetype=go
+#### # EOT
+
+#----------------------------- END go - golang -----------------------------
+Kotlin vim syntax
+
+git clone https://github.com/udalov/kotlin-vim ~/.vim/bundle/kotlin-vim
+
+#----------------------------- BEGIN meld -----------------------------
+Meld
+
+brew tap homebrew/cask
+brew cask install meld
+
+
+# Fix tainted stuff between runs:
+
+https://yousseb.github.io/meld/
+https://github.com/yousseb/meld/issues/70#issuecomment-430599247
+
+#---------------------------------------------------------------------#
+# move the original Mac-port starter script to Meld.distro below.
+
+sudo mv /Applications/Meld.app/Contents/MacOS/Meld /Applications/Meld.app/Contents/MacOS/Meld.distro
+
+#---------------------------------------------------------------------#
+sudo vi /Applications/Meld.app/Contents/MacOS/Meld
+
+
+#!/bin/bash
+ 
+## 
+# $ sudo xattr -r -d com.apple.quarantine /Applications/Meld.app/
+ 
+## standard plist settings: OK
+# ~/Library/Preferences/org.gnome.meld.plist
+# $ defaults read org.gnome.meld
+# $ defaults write org.gnome.meld "/org/gnome/meld/use-system-font" 0
+# $ defaults write org.gnome.meld "/org/gnome/meld/custom-font" "Ricty, 18"
+ 
+##FIXME: ad-hoc cleanup Meld settings
+(cd ${HOME}
+rm -rf ./.local/share/meld
+#rm -f ./Library/Preferences/org.gnome.meld.plist
+rm -rf "./Library/Saved Application State/org.gnome.meld.savedState/"
+)
+ 
+# export G_ENABLE_DIAGNOSTIC=1 # 0 or 1
+# export GTK_THEME=Adwaita # Adwaita or Adwaita:dark
+# export GTK_DEBUG=interactive
+ 
+logger "/Applications/Meld.app/Contents/MacOS/Meld.distro"
+exec "/Applications/Meld.app/Contents/MacOS/Meld.distro" $@
+#---------------------------------------------------------------------#
+
+
+sudo chmod +x /Applications/Meld.app/Contents/MacOS/Meld
+#---------------------------------------------------------------------#
+Notes:
+
+* you are available some GTK-related environment variables inside the above wrapper Meld: G_ENABLE_DIAGNOSTIC, GTK_THEME, GTK_DEBUG.
+
+* you are also available some tips commented in the above wrapper Meld if necessary.
+* I also have posted how to use/change custom-font with Meld plist settings in Issue Can't change font #38.
+The plist file ~//Library/Preferences/org.gnome.meld.plist is just the one.
+Please check and try the post if necessary.
+
+#----------------------------- END meld -----------------------------
+
+#----------------------------- BEGIN kotlin/java -----------------------------
+
+### JAVA / Kotlin
+
+brew cask install adoptopenjdk
+
+????     ---> coreto  ---> unisntall adoptopenjdk
+
+https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
+
+
+#----------------------------- END kotlin/java -----------------------------
+
+
+#----------------------------- postgres -----------------------------
+brew install postgresql
+
+
+#----------------------------- intelij -----------------------------
+https://www.jetbrains.com/idea/download/other.html?utm_source=product&utm_medium=link&utm_campaign=IC
+2019.2.1 for macOS (dmg)
+
+Java 11
+
+
+Select MezaApiApplication.kt  ---> right button --> run / build
+main class: com.talkdesk.meza.api.MezaApiApplicationKt
+Use classpath of module: meza-backend.api.main
+
+
+SPRING_ACTIVE_PROFILES=development
+
+
+See image (intelij-options-settings.png)  in this directory, for config options
+
+
+#-----------------------------

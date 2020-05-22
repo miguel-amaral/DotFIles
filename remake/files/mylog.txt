@@ -1,0 +1,6 @@
+
+# configure go lint in GoLand
+https://github.com/vmware/dispatch/wiki/Configure-GoLand-with-golint
+
+# Also add golangci-lint
+# GoLand `Open Preferences, and under Tools -> File Watchers ADD`

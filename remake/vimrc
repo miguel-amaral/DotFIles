@@ -1,0 +1,19 @@
+" based from https://dougblack.io/words/a-good-vimrc.html
+
+colorscheme badwolf 
+syntax enable           " enable syntax processing
+syntax on
+set number              " show line numbers
+
+set tabstop=4       " number of spaces displayed per TAB char
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+set wildmenu            " visual autocomplete for command menu
+set showmatch           " highlight matching [{()}]
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+" Vim will keep highlighted matches from searches until you either run a new one or manually stop highlighting the old search with :nohlsearch. I find myself running this all the time so I've mapped it to ,<space>.

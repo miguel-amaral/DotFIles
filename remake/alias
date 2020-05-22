@@ -1,0 +1,34 @@
+#!/bin/bash
+alias ll='ls -llhG'
+alias la='ls -lahG'
+
+alias ......='cd ../../../../..'
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias LL='ll'
+
+alias gst='git status'
+alias k='kubectl'
+
+# request confirmation if operation deletes another file
+alias mv="mv -i"
+alias cp="cp -i"
+
+
+AWS_IS_AUTHED="aws sts get-caller-identity"
+alias aws_is_authed="echo $AWS_IS_AUTHED; $AWS_IS_AUTHED"
+
+alias k_events="kubectl get events --all-namespaces --watch -o 'go-template={{.lastTimestamp}} {{.involvedObject.kind}} {{.message}} ({{.involvedObject.name}}){{\"\n\"}}'"
+
+## TD
+list_td_sshagent_keys() {
+  ssh-add -l | awk '/talkdesk/ {print $3}'
+}
+
+alias td-prd-ssh-agent='for agent_keys in $(list_td_sshagent_keys); do ssh-add -d $agent_keys; done; echo ''; for keys in $(ls -1 ~/.ssh/talkdesk*pr*d* | grep -v dr | grep -v .pub); do ssh-add $keys; done'
+alias td-qa-ssh-agent='for agent_keys in $(list_td_sshagent_keys); do ssh-add -d $agent_keys; done; echo ''; for keys in $(ls -1 ~/.ssh/talkdesk*qa* | grep -v .pub); do ssh-add $keys; done'
+alias td-stg-ssh-agent='for agent_keys in $(list_td_sshagent_keys); do ssh-add -d $agent_keys; done; echo ''; for keys in $(ls -1 ~/.ssh/talkdesk*st*g* | grep -v .pub); do ssh-add $keys; done'
+
+alias psql_local='psql -h localhost meza-api-db -U meza-api-user -w'

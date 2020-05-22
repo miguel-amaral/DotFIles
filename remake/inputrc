@@ -1,0 +1,12 @@
+#!/bin/bash
+## match command prefix on arrow-up (instead cycling all commands)
+"\e[A": history-search-backward            # arrow up
+"\e[B": history-search-forward             # arrow down
+
+
+## cycle through sugestions on TAB
+# https://unix.stackexchange.com/questions/55203/bash-autocomplete-first-list-files-then-cycle-through-them
+TAB: menu-complete
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set menu-complete-display-prefix on

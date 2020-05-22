@@ -1,0 +1,22 @@
+#Leitura do ficheiro para Array
+IFS=$'\r\n' GLOBIGNORE='*' :; ARRAY=($(cat ./episodio))
+
+ep_number=${ARRAY[0]}
+
+######### Episode status ###############
+echo -e -n "\n\e[33mOld: \e[0m$ARRAY\n"
+
+
+######### Calculating new ep number ###############
+one=1
+total=$(echo "scale=2; ${ep_number} - ${one}" | bc)
+if [ 10 -gt $total ] ; then
+  total="0"$total
+fi
+ARRAY[0]=$total
+
+######### Episode status ###############
+echo -e -n "\e[32mNew: \e[0m$ARRAY\n"
+
+#Escrita do Array no ficheiro
+printf "%s\n" "${ARRAY[@]}" > ./episodio

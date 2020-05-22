@@ -1,0 +1,57 @@
+#!/bin/sh
+
+DEBUG=f
+mid_folder() {
+  for subdir in */
+  ######### Each series individual folder
+  do
+    if [[ -d $subdir ]]; then
+      # $subdir is a directory
+      extensions=(mp4 mkv avi)
+      if [ "$DEBUG" = "T" ] || [  "$DEBUG" = "t" ] ; then
+        echo -e -n "  \e[32msubdir:  \e[0m" $subdir "\n"
+      fi
+      cd "$subdir"
+      for i in ${extensions[@]}
+      do
+        file="*."$i
+        if [ $file != \*."$i" ] ; then
+          ##echo -e -n "\n\n\e[1;33mFound a show\!\e[0m\n"; echo -e -n "\e[31mDir:  \e[0m""\n";  echo -e -n "  \e[32msubdir:  \e[0m""\n";  echo -e -n "      \e[35mName: \e[0m""\n"
+
+          echo -e -n "\n\n\e[1;33mFound a show\!\e[0m\n"
+          echo -e -n "\n\n\e[31mDir:  \e[0m"$dir"\n"
+          echo -e -n "  \e[32msubdir:  \e[0m"$subdir"\n"
+          echo -e -n "      \e[35mName: \e[0m" $file "\n"
+          mv $file ../
+        fi
+      done
+      cd ..
+    fi
+  done
+}
+
+# current_dir=$(pwd)
+cd ~/Downloads/kTorrent/Series/
+for dir in */
+do
+  if [[ -d $dir ]]; then
+    # $dir is a directory
+    ######### Whole Series
+    if [ "$DEBUG" = "T" ] || [  "$DEBUG" = "t" ] ; then
+      echo -e -n "\n\e[31mDir:  \e[0m"$dir"\n"
+    fi
+    cd "$dir"
+    mid_folder
+    cd ..
+  fi
+done
+
+########################################################      mv $dir$subdir*.$i $dir
+## extensions=(mp4 mkv avi)
+## for subdir in */
+## do
+##   for i in ${extensions[@]}
+##   do
+##     mv $subdir*.$i ./
+##   done
+## done

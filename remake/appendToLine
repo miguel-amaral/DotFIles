@@ -1,0 +1,1 @@
+sed -E -i 's/^.+$/&___append_here___/g' nameOfFile

@@ -1,0 +1,64 @@
+#!/bin/sh
+i=0
+pathArray=()
+one=1
+
+path="~/Downloads/kTorrent/Movies/"
+
+######### Get all possible movies #############
+cd $path
+for subdir in */
+do
+  i=$((i + one))
+  echo -n -e "\e[33m$i\e[0m - $subdir\n"
+  pathArray[i]="$subdir"
+done
+
+########## Getting the Show ########
+re='^[0-9]+$'
+read -p $'\e[33mQual Serie?\e[0m\n-> ' yournumber
+while ! [[ $yournumber =~ $re && $yournumber -le $i ]] ; do
+   ######## Not a Valid number.. ######
+   echo -e "\e[31mERROR\e[0m: \e[1;33m$yournumber\e[0m is not a valid number\n"
+   read -p $'\e[33mQual Filme?\e[0m\n-> ' yournumber
+done
+
+########## Getting the path ########
+path="$path${pathArray[$yournumber]}"
+######### Expanding the ~ ##########
+path="${path/#\~/$HOME}"
+
+echo "$path"
+cd $path
+
+
+i=0 # reseting the counter
+videoFiles=()
+
+######### Get number of video files #############
+for file in *.mkv *.avi *.mp4
+do
+  if [ $file != \*".mkv" ] && [ $file != \*".avi" ] && [ $file != \*".mp4" ]
+  then
+    i=$((i + 1))
+    echo -n -e "\e[33m$i\e[0m - $file\n"
+    videoFiles[i]="$file"
+  fi
+done
+
+if [ $i -eq 1 ]
+then
+  mpv $file &> /dev/null &
+
+  echo "JUst ONE"
+else
+  echo "MOre than ONE"
+fi
+########## Getting the Show ########
+re='^[0-9]+$'
+read -p $'\e[33mQual Serie?\e[0m\n-> ' yournumber
+while ! [[ $yournumber =~ $re && $yournumber -le $i ]] ; do
+   ######## Not a Valid number.. ######
+   echo -e "\e[31mERROR\e[0m: \e[1;33m$yournumber\e[0m is not a valid number\n"
+   read -p $'\e[33mQual Filme?\e[0m\n-> ' yournumber
+done

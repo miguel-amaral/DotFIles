@@ -1,0 +1,78 @@
+
+export PATH="$HOME/bin:$HOME/bin-td:$PATH"
+export PATH="$PATH:/usr/local/bin"
+
+## Go stuff
+export GOPATH=$HOME/workspace/go
+export PATH=$PATH:$GOPATH/bin
+
+# Should probably check if KUBECONFIG has something there
+export KUBECONFIG=$HOME/.kube/config
+
+EDITOR=vim
+export EDITOR
+
+export GREP_OPTIONS='--color=auto'
+# export GREP_COLOR='1;32' #bright green
+
+export SPRING_PROFILES_ACTIVE=development
+
+# number of history in memory - default 500
+#HISTSIZE
+HISTFILESIZE=5000
+HISTTIMEFORMAT="%d/%m/%y %T "
+
+#########################
+##### AutoCompletion ####
+# brew install bash-completion@2
+## bash-completion@2 has backwards compatibility with bash-completion by setting this
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+## ASDF auto completion
+. $(brew --prefix asdf)/asdf.sh
+
+HOMEBREW_PREFIX=$(brew --prefix)
+if type brew &>/dev/null; then
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+    done
+  fi
+fi
+
+#### Autocompletion ####
+########################
+
+# ssh hosts
+complete -W "$(<~/.ssh/hosts)" ssh
+
+# gopass autocomplete
+source <(gopass completion bash)
+
+## td
+# symbolic link created in /usr/local/etc/bash_completion.d/
+
+## git prompt
+source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+
+## kubectl
+source <(kubectl completion bash)
+complete -F __start_kubectl k # include autocomplete for `k` only
+
+
+### ##### #####
+source $HOME/.bashrc
+
+
+for DEV_ENV_SET in "${HOME}/.dev_env.d/"*; do
+      [[ -r "$DEV_ENV_SET" ]] && source $DEV_ENV_SET
+done 
+
+# ensure local td is used first
+export PATH="$HOME/bin:$HOME/bin-td:$PATH"
+export GPG_TTY=$(tty)
+
